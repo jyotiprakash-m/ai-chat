@@ -15,8 +15,6 @@ function reconstructUrl({ url }: { url: string[] }) {
   return decodedComponent.join("/");
 }
 const Page = async ({ params }: PageProps) => {
-  console.log(params);
-
   const sessionCookie = cookies().get("sessionId")?.value;
   const reconstructedUrl = reconstructUrl({ url: params.url as string[] });
   const isAlreadyIndexed = await redis.sismember(
@@ -32,7 +30,7 @@ const Page = async ({ params }: PageProps) => {
     amount: 10,
     sessionId,
   });
-  console.log(initialMessages);
+
   if (!isAlreadyIndexed) {
     await ragChat.context.add({
       type: "html",
