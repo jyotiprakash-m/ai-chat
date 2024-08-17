@@ -7,7 +7,7 @@ import Providers from "@/components/Providers";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Website filter website",
+  title: "Lets chart with website !!",
   description: "Made with Upstash",
 };
 
